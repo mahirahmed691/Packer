@@ -1,0 +1,32 @@
+{
+  "variables": 
+  {
+        "service_account_json": "~/vagrant/Terraform/terraform_key",
+        "project_id": "terraform-214200"
+  },
+
+  
+  "builders": 
+  [
+    {
+ 
+      "type": "googlecompute",
+      "account_file": "/home/vagrant/Terraform/terraform_key",
+      "project_id": "terraform-214200",
+      "source_image_family": "centos-7",
+      "ssh_username": "packer",
+      "zone": "europe-west2-c",
+      "image_name": ""
+    }
+  ],
+
+  "provisioners": 
+  [
+	{
+
+	"type": "shell",
+        "script": "jenkins",
+        "pause_before": "05s"
+	}
+  ] 
+}
